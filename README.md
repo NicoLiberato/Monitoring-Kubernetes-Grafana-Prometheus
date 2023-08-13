@@ -9,7 +9,18 @@ Install Kind in order to deploy your local Kubernetes cluster, better in a Linux
 ## Create a Kubernetes cluster using Kind:
 Open a terminal or command prompt and type 
 
+```
 kind create cluster --name my-cluster
+```
+
+This will create a new Kubernetes cluster with the name "my-cluster". You can replace "my-cluster" with a name of your choice.
+Create the "monitoring" namespace:
+
+Open a terminal or command prompt.
+
+```
+kubectl create namespace monitoring --cluster my-cluster
+```
 
 
 
