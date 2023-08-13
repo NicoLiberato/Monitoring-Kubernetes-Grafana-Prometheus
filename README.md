@@ -22,6 +22,15 @@ Open a terminal or command prompt.
 kubectl create namespace monitoring --cluster my-cluster
 ```
 
+After executing the command, the "monitoring" namespace will be created in your Kind cluster with the name "my-cluster".
+Verify the namespace creation:
+
+```
+kubectl get namespaces --cluster my-cluster
+```
+
+You should see the "monitoring" namespace listed in the output, indicating that it was successfully created.
+That's it! You have successfully created a namespace named "monitoring" in your Kind cluster. You can now use this namespace to deploy your monitoring components such as Grafana and Prometheus.
 
 
 ## Install Helm , the package manager for Kubernetes
