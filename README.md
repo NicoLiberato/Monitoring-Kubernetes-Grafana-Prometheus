@@ -24,7 +24,7 @@ kubectl create namespace monitoring --cluster my-cluster
 
 
 
-
+## Install Helm , the package manager for Kubernetes
 
 
 ## Installation 
