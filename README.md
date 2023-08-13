@@ -32,8 +32,16 @@ kubectl get namespaces --cluster my-cluster
 You should see the "monitoring" namespace listed in the output, indicating that it was successfully created.
 That's it! You have successfully created a namespace named "monitoring" in your Kind cluster. You can now use this namespace to deploy your monitoring components such as Grafana and Prometheus.
 
-
 ## Install Helm , the package manager for Kubernetes
+Helm is a package manager for Kubernetes that simplifies the deployment and management of applications on a Kubernetes cluster. It provides a higher-level abstraction and streamlines the process of packaging, versioning, and releasing applications. For install Helm, you can follow the steps: 
+
+    a) Download your desired version
+    b) Unpack it (tar -zxvf helm-v3.0.0-linux-amd64.tar.gz)
+    c) Find the helm binary in the unpacked directory, and move it to its desired destination (mv linux-amd64/helm /usr/local/bin/helm)
+
+
+
+
 
 
 ## Installation 
