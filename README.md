@@ -9,6 +9,9 @@ Install Kind in order to deploy your local Kubernetes cluster, better in a Linux
 ## Create a Kubernetes cluster using Kind:
 Open a terminal or command prompt and type 
 
+kind create cluster --name my-cluster
+
+
 
 
 
