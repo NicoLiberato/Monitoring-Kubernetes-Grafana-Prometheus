@@ -10,23 +10,37 @@ Install Kind in order to deploy your local Kubernetes cluster, better in a Linux
 Open a terminal or command prompt and type 
 
 ```
-kind create cluster --name my-cluster
+# For AMD64 / x86_64
+[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+# For ARM64
+[ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-arm64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+```
+
+```
+kind create cluster --name my-cluster   or
+
+go install sigs.k8s.io/kind@v0.20.0 && kind create cluster --name my-cluster
 ```
 
 This will create a new Kubernetes cluster with the name "my-cluster". You can replace "my-cluster" with a name of your choice.
-Create the "monitoring" namespace:
+Create the "monitoring" and "kubernetes-dashboard" namespaces:
 
 Open a terminal or command prompt.
 
 ```
-kubectl create namespace monitoring --cluster my-cluster
+kubectl create namespace monitoring 
+kubectl create namespace kubernetes-dashboard
 ```
 
 After executing the command, the "monitoring" namespace will be created in your Kind cluster with the name "my-cluster".
 Verify the namespace creation:
 
 ```
-kubectl get namespaces --cluster my-cluster
+kubectl get namespaces --cluster my-cluster or
+
+kubectl get ns
 ```
 
 You should see the "monitoring" namespace listed in the output, indicating that it was successfully created.
@@ -38,17 +52,18 @@ To configure the Kubernetes Dashboard in your cluster, you need to create a Serv
 ```
 kubectl apply -f service_account.yaml
 ```
-Same for the ClusterRoleBinfing
+Same for the ClusterRoleBinfing and the secret for obtaining the token
 
 ```
 kubectl apply -f cluster_binding.yaml
+kubectl apply -f secret.yaml
 ```
 A lot of support for installing and configuring Kubernetes dashboards is provided in the official site, here : https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 
 After the steps above, access the Kubernetes dashboard obtaining the token :
 
 ```
-kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep dashboard-admin | awk '{print $1}')
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
 
 ```
 and copy the token generated. Starting the dashboard can be done using the proxy: 
