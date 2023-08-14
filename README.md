@@ -91,6 +91,25 @@ Helm is a package manager for Kubernetes that simplifies the deployment and mana
 ## Install Prometheus and Grafana
 This section provides instructions for installing Grafana and Prometheus in your Kubernetes cluster.
 
+# Add prometheus-community repo
+
+```
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
+helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring
+
+kubectl --namespace monitoring get pods -l "release=prometheus"
+
+kubectl get pods -n monitoring
+
+kubectl get svc -n monitoring
+
+kubectl port-forward svc/prometheus-kube-prometheus-prometheus -n monitoring 9090
+```
+
+# Update helm repo
+
+helm repo update
 
 
 
