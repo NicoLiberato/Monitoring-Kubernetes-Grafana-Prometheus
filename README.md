@@ -111,6 +111,7 @@ kubectl port-forward svc/prometheus-kube-prometheus-prometheus -n monitoring 909
 
 helm repo update
 
+<img width="923" alt="Prometheus_graph" src="https://github.com/NicoLiberato/Monitoring-Kubernetes-Grafana-Prometheus/assets/12775912/77ce8946-1bc0-4e26-b3c7-fd9266719a39">
 
 
 
