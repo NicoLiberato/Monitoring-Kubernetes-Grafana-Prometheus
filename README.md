@@ -105,13 +105,25 @@ kubectl get pods -n monitoring
 kubectl get svc -n monitoring
 
 kubectl port-forward svc/prometheus-kube-prometheus-prometheus -n monitoring 9090
-```
-
-# Update helm repo
 
 helm repo update
+```
 
-<img width="923" alt="Prometheus_graph" src="https://github.com/NicoLiberato/Monitoring-Kubernetes-Grafana-Prometheus/assets/12775912/77ce8946-1bc0-4e26-b3c7-fd9266719a39">
+# Play with common queries for measure CPU utilization, memory usage, etc
+With only Prometheus installed in your cluster is more or less easy measure some common metrics for the CPU utilization or some other useful performance indicators. Let's play with some easy queries, accessible from the Prometheus dashboard ( serving at 127.0.0.1:9090 in our example. 
+
+### Memory Usage in Percent
+```
+100 * (1 - ((avg_over_time(node_memory_MemFree_bytes[10m]) + avg_over_time(node_memory_Cached_bytes[10m]) + avg_over_time(node_memory_Buffers_bytes[10m])) / avg_over_time(node_memory_MemTotal_bytes[10m])))
+```
+<img width="947" alt="memory_usage_percent" src="https://github.com/NicoLiberato/Monitoring-Kubernetes-Grafana-Prometheus/assets/12775912/e50d53c8-e001-47ed-99d7-b88d06c66224">
+
+### Histogram
+```
+histogram_quantile(1.00, sum(rate(prometheus_http_request_duration_seconds_bucket[5m])) by (handler, le)) * 1e3)
+```
+<img width="950" alt="histogram" src="https://github.com/NicoLiberato/Monitoring-Kubernetes-Grafana-Prometheus/assets/12775912/8a2e96d8-100e-4d39-920b-475cae156c7b">
+
 
 
 
