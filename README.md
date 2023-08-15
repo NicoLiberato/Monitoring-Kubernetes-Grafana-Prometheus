@@ -82,7 +82,7 @@ Click the "Sign In" button to access the Kubernetes Dashboard.
 
 
 ## Install Helm , the package manager for Kubernetes
-Helm is a package manager for Kubernetes that simplifies the deployment and management of applications on a Kubernetes cluster. It provides a higher-level abstraction and streamlines the process of packaging, versioning, and releasing applications. For install Helm, you can follow the steps: 
+Helm is a package manager for Kubernetes that simplifies the deployment and management of applications on a Kubernetes cluster. It provides a higher-level abstraction and streamlines the process of packaging, versioning, and releasing applications. For install Helm, go to following link https://helm.sh/docs/intro/install/ you type the commands: 
 
     a) Download your desired version
     b) Unpack it (tar -zxvf helm-v3.0.0-linux-amd64.tar.gz)
