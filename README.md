@@ -89,9 +89,9 @@ Helm is a package manager for Kubernetes that simplifies the deployment and mana
     c) Find the helm binary in the unpacked directory, and move it to its desired destination (mv linux-amd64/helm /usr/local/bin/helm)
 
 ## Install Prometheus and Grafana
-This section provides instructions for installing Grafana and Prometheus in your Kubernetes cluster.
+Prometheus is a free software application used for event monitoring and alerting.It records metrics in a time series database (allowing for high dimensionality) built using an HTTP pull model, with flexible queries and real-time alerting. In this section we will install Prometheus and Grafana and provide actionable examples of their usage. 
 
-# Add prometheus-community repo
+# Configuring Prometheus with Helm. 
 
 ```
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
