@@ -150,10 +150,12 @@ histogram_quantile(1.00, sum(rate(prometheus_http_request_duration_seconds_bucke
      kubectl --namespace default port-forward $POD_NAME 3000
 
 ```
+## Adding examples of visualization metrics in Grafana
 
 
 
 
+<img width="947" alt="grafana_example" src="https://github.com/NicoLiberato/Monitoring-Kubernetes-Grafana-Prometheus/assets/12775912/cf8f3379-1b07-4081-8494-dad51032d4ea">
 
 
 
