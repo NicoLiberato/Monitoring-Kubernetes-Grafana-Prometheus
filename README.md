@@ -124,6 +124,25 @@ histogram_quantile(1.00, sum(rate(prometheus_http_request_duration_seconds_bucke
 ```
 <img width="950" alt="histogram" src="https://github.com/NicoLiberato/Monitoring-Kubernetes-Grafana-Prometheus/assets/12775912/8a2e96d8-100e-4d39-920b-475cae156c7b">
 
+## Configure Grafana
+```
+ helm repo add grafana https://grafana.github.io/helm-charts
+ helm install grafana grafana/grafana
+
+ 1. Get your 'admin' user password by running:
+
+   kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+
+ 2. The Grafana server can be accessed via port 80 on the following DNS name from within your cluster:
+
+   grafana.default.svc.cluster.local
+
+   Get the Grafana URL to visit by running these commands in the same shell:
+     export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=grafana,app.kubernetes.io  /instance=grafana" -o jsonpath="{.items[0].metadata.name}")
+     kubectl --namespace default port-forward $POD_NAME 3000
+
+```
 
 
 
